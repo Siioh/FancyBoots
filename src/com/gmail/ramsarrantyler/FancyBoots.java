@@ -8,6 +8,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -36,18 +37,28 @@ public final class FancyBoots extends JavaPlugin {
 	@Override
 	public void onEnable(){
 		
-		//Set the lore that all FIRE boots will have.
+		//Set the lore/aspects that all FIRE boots will have.
 		fireboot_lore.add(ChatColor.DARK_PURPLE + "Active Particle Effect: Flames");
 		
 		leathermeta.setLore(fireboot_lore);
+		leathermeta.addEnchant(Enchantment.DIG_SPEED, 3, true);
+		leathermeta.setDisplayName(ChatColor.AQUA + "Leather Boots");
 		leatherboots.setItemMeta(leathermeta);
 		chainmeta.setLore(fireboot_lore);
+		chainmeta.addEnchant(Enchantment.DIG_SPEED, 3, true);
+		chainmeta.setDisplayName(ChatColor.AQUA + "Chain Boots");
 		chainboots.setItemMeta(chainmeta);
 		ironmeta.setLore(fireboot_lore);
+		ironmeta.addEnchant(Enchantment.DIG_SPEED, 3, true);
+		ironmeta.setDisplayName(ChatColor.AQUA + "Iron Boots");
 		ironboots.setItemMeta(ironmeta);
 		goldmeta.setLore(fireboot_lore);
+		goldmeta.addEnchant(Enchantment.DIG_SPEED, 3, true);
+		goldmeta.setDisplayName(ChatColor.AQUA + "Gold Boots");
 		goldboots.setItemMeta(goldmeta);
 		diamondmeta.setLore(fireboot_lore);
+		diamondmeta.addEnchant(Enchantment.DIG_SPEED, 3, true);
+		diamondmeta.setDisplayName(ChatColor.AQUA + "Diamond Boots");
 		diamondboots.setItemMeta(diamondmeta);
 		
 		//Fire particle boot recipes.
@@ -59,28 +70,28 @@ public final class FancyBoots extends JavaPlugin {
 		getServer().addRecipe(fire_leatherboots);
 		
 		ShapedRecipe fire_chainboots = new ShapedRecipe(chainboots);
-		fire_chainboots.shape("BCB", "CAC", "BCB");
+		fire_chainboots.shape("BCB", "BAB", "BCB");
 		fire_chainboots.setIngredient('A', Material.CHAINMAIL_BOOTS);
 		fire_chainboots.setIngredient('B', Material.CLAY_BALL);
 		fire_chainboots.setIngredient('C', Material.FLINT_AND_STEEL);
 		getServer().addRecipe(fire_chainboots);
 		
 		ShapedRecipe fire_ironboots = new ShapedRecipe(ironboots);
-		fire_ironboots.shape("BCB", "CAC", "BCB");
+		fire_ironboots.shape("BCB", "BAB", "BCB");
 		fire_ironboots.setIngredient('A', Material.IRON_BOOTS);
 		fire_ironboots.setIngredient('B', Material.IRON_INGOT);
 		fire_ironboots.setIngredient('C', Material.FLINT_AND_STEEL);
 		getServer().addRecipe(fire_ironboots);
 		
 		ShapedRecipe fire_goldboots = new ShapedRecipe(goldboots);
-		fire_goldboots.shape("BCB", "CAC", "BCB");
+		fire_goldboots.shape("BCB", "BAB", "BCB");
 		fire_goldboots.setIngredient('A', Material.GOLD_BOOTS);
 		fire_goldboots.setIngredient('B', Material.GOLD_INGOT);
 		fire_goldboots.setIngredient('C', Material.FLINT_AND_STEEL);
 		getServer().addRecipe(fire_goldboots);
 		
 		ShapedRecipe fire_diamondboots = new ShapedRecipe(diamondboots);
-		fire_diamondboots.shape("BCB", "CAC", "BCB");
+		fire_diamondboots.shape("BCB", "BAB", "BCB");
 		fire_diamondboots.setIngredient('A', Material.DIAMOND_BOOTS);
 		fire_diamondboots.setIngredient('B', Material.DIAMOND);
 		fire_diamondboots.setIngredient('C', Material.FLINT_AND_STEEL);
