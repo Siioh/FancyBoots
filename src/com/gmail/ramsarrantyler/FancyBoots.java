@@ -14,6 +14,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public final class FancyBoots extends JavaPlugin {
 	
@@ -23,7 +24,13 @@ public final class FancyBoots extends JavaPlugin {
 	final ItemStack ironboots = new ItemStack(Material.IRON_BOOTS, 1);
 	final ItemStack goldboots = new ItemStack(Material.GOLD_BOOTS, 1);
 	final ItemStack diamondboots = new ItemStack(Material.DIAMOND_BOOTS, 1);
-	//Now set ArrayList<String> lore for each type of boot.
+	//Get meta data for each set of boots.
+	final ItemMeta leathermeta = leatherboots.getItemMeta();
+	final ItemMeta chainmeta = chainboots.getItemMeta();
+	final ItemMeta ironmeta = ironboots.getItemMeta();
+	final ItemMeta goldmeta = goldboots.getItemMeta();
+	final ItemMeta diamondmeta = diamondboots.getItemMeta();
+	//Now set ArrayList<String> lore for each type of particle for the boots.
 	final ArrayList<String> fireboot_lore = new ArrayList<String>();
 	
 	@Override
@@ -31,11 +38,17 @@ public final class FancyBoots extends JavaPlugin {
 		
 		//Set the lore that all FIRE boots will have.
 		fireboot_lore.add(ChatColor.DARK_PURPLE + "Active Particle Effect: Flames");
-		leatherboots.getItemMeta().setLore(fireboot_lore);
-		chainboots.getItemMeta().setLore(fireboot_lore);
-		ironboots.getItemMeta().setLore(fireboot_lore);
-		goldboots.getItemMeta().setLore(fireboot_lore);
-		diamondboots.getItemMeta().setLore(fireboot_lore);
+		
+		leathermeta.setLore(fireboot_lore);
+		leatherboots.setItemMeta(leathermeta);
+		chainmeta.setLore(fireboot_lore);
+		chainboots.setItemMeta(chainmeta);
+		ironmeta.setLore(fireboot_lore);
+		ironboots.setItemMeta(ironmeta);
+		goldmeta.setLore(fireboot_lore);
+		goldboots.setItemMeta(goldmeta);
+		diamondmeta.setLore(fireboot_lore);
+		diamondboots.setItemMeta(diamondmeta);
 		
 		//Fire particle boot recipes.
 		ShapedRecipe fire_leatherboots = new ShapedRecipe(leatherboots);
@@ -96,7 +109,7 @@ public final class FancyBoots extends JavaPlugin {
 				World world = player.getWorld();
 				Location loc = player.getLocation();
 				if(boots.getItemMeta().hasLore()){
-					if(boots.getItemMeta().getLore().equals(ChatColor.DARK_PURPLE + "Active Particle Effect: Flames")){
+					if(boots.getItemMeta().getLore().equals(fireboot_lore)){
 						if (Cooldowns.tryCooldown(player, "particle", 1000)) {
 							world.playEffect(loc, Effect.MOBSPAWNER_FLAMES, 0);
 						}
