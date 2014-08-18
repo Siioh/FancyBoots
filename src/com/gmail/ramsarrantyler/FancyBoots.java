@@ -34,6 +34,7 @@ public final class FancyBoots extends JavaPlugin {
 	//Now set ArrayList<String> lore for each type of particle for the boots.
 	final ArrayList<String> fireboot_lore = new ArrayList<String>();
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void onEnable(){
 		
@@ -41,23 +42,23 @@ public final class FancyBoots extends JavaPlugin {
 		fireboot_lore.add(ChatColor.DARK_PURPLE + "Active Particle Effect: Flames");
 		
 		leathermeta.setLore(fireboot_lore);
-		leathermeta.addEnchant(Enchantment.DIG_SPEED, 3, true);
+		leathermeta.addEnchant(Enchantment.getById(34), 3, true);
 		leathermeta.setDisplayName(ChatColor.AQUA + "Leather Boots");
 		leatherboots.setItemMeta(leathermeta);
 		chainmeta.setLore(fireboot_lore);
-		chainmeta.addEnchant(Enchantment.DIG_SPEED, 3, true);
+		chainmeta.addEnchant(Enchantment.getById(34), 3, true);
 		chainmeta.setDisplayName(ChatColor.AQUA + "Chain Boots");
 		chainboots.setItemMeta(chainmeta);
 		ironmeta.setLore(fireboot_lore);
-		ironmeta.addEnchant(Enchantment.DIG_SPEED, 3, true);
+		ironmeta.addEnchant(Enchantment.getById(34), 3, true);
 		ironmeta.setDisplayName(ChatColor.AQUA + "Iron Boots");
 		ironboots.setItemMeta(ironmeta);
 		goldmeta.setLore(fireboot_lore);
-		goldmeta.addEnchant(Enchantment.DIG_SPEED, 3, true);
+		goldmeta.addEnchant(Enchantment.getById(34), 3, true);
 		goldmeta.setDisplayName(ChatColor.AQUA + "Gold Boots");
 		goldboots.setItemMeta(goldmeta);
 		diamondmeta.setLore(fireboot_lore);
-		diamondmeta.addEnchant(Enchantment.DIG_SPEED, 3, true);
+		diamondmeta.addEnchant(Enchantment.getById(34), 3, true);
 		diamondmeta.setDisplayName(ChatColor.AQUA + "Diamond Boots");
 		diamondboots.setItemMeta(diamondmeta);
 		
