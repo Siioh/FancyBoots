@@ -91,18 +91,19 @@ public final class FancyBoots extends JavaPlugin {
 		@EventHandler
 		public void onMove(PlayerMoveEvent evt){
 			Player player = evt.getPlayer();
-			ItemStack boots = player.getEquipment().getBoots();
-			World world = player.getWorld();
-			Location loc = player.getLocation();
-			if(boots.getItemMeta().hasLore()){
-				if(boots.getItemMeta().getLore().equals("Active Particle Effect: Flames")){
-					if (Cooldowns.tryCooldown(player, "particle", 1000)) {
-	        			world.playEffect(loc, Effect.MOBSPAWNER_FLAMES, 0);
+			if(player.getEquipment().getBoots() != null){
+				ItemStack boots = player.getEquipment().getBoots();
+				World world = player.getWorld();
+				Location loc = player.getLocation();
+				if(boots.getItemMeta().hasLore()){
+					if(boots.getItemMeta().getLore().equals(ChatColor.DARK_PURPLE + "Active Particle Effect: Flames")){
+						if (Cooldowns.tryCooldown(player, "particle", 1000)) {
+							world.playEffect(loc, Effect.MOBSPAWNER_FLAMES, 0);
+						}
 					}
 				}
 			}
 		}
-		
 	}
 	@Override
 	public void onDisable(){
